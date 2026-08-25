@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educación Secundaria - Ley N.° 26.206 | Práctica Profesional III</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado / Navbar -->
+    <header>
+        <div class="header-container">
+            <h1>Ley de Educación Nacional N.º 26.206</h1>
+            <p class="subtitle">Análisis del Nivel Secundario - Profesorado de Educación Tecnológica</p>
+            <!-- Botón de Hamburguesa para Celulares -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+                    ☰
+                </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#finalidad">Finalidad</a></li>
+                    <li><a href="#secundario">Nivel Secundario</a></li>
+                    <li><a href="#actores">Docentes y Alumnos</a></li>
+                    <li><a href="#tecnologica">Ed. Tecnológica</a></li>
+                    <li><a href="#impacto">Impacto Docente</a></li>
+                    <li><a href="#debate" class="btn-nav">Muro Interactivo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-container">
+
+        <!-- Sección Inicio / Portada -->
+        <section id="inicio" class="card hero">
+            <h2>Práctica Profesional III</h2>
+            <p><strong>Cátedra:</strong> Profesorado de Educación Tecnológica</p>
+            <p><strong>Grupo 3:</strong> Dias Alejandra | Burik Sonia | Coronel Carla | Bogado Franco</p>
+            <div class="badge">Especial: Nivel Secundario (Arts. 29 al 33)</div>
+        </section>
+
+        <!-- Sección 1: Finalidad General -->
+        <section id="finalidad" class="card">
+            <h2>1. Finalidad de la Educación en Argentina</h2>
+            <p>Según la Ley N.º 26.206, la educación y el conocimiento son un <strong>bien público y un derecho personal y social</strong>, garantizados por el Estado.</p>
+            <div class="grid-3">
+                <div class="mini-card">
+                    <h3>Inclusión y Equidad</h3>
+                    <p>Garantizar la igualdad de oportunidades y erradicar cualquier tipo de discriminación.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Democracia</h3>
+                    <p>Formar ciudadanos conscientes de sus derechos, deberes y valores éticos.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Desarrollo Social</h3>
+                    <p>Vincular el aprendizaje con el desarrollo socioeconómico y la identidad nacional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: El Nivel Secundario -->
+        <section id="secundario" class="card">
+            <h2>2. Características y Propósitos del Nivel Secundario</h2>
+            <p>Estatus: <strong>Obligatorio</strong> y constituye una unidad pedagógica y organizativa (Arts. 29-33).</p>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="propositos">Triple Propósito</button>
+                <button class="tab-btn" data-tab="estructura">Estructura Curricular</button>
+                <button class="tab-btn" data-tab="practicas">Prácticas Educativas</button>
+            </div>
+
+            <!-- Contenido de Pestañas -->
+            <div id="propositos" class="tab-content active">
+                <ul>
+                    <li><strong>Formación Ciudadana:</strong> Capacitar para el ejercicio pleno de la ciudadanía democrática.</li>
+                    <li><strong>Inserción Laboral:</strong> Habilitar para la incorporación al mundo del trabajo y la producción.</li>
+                    <li><strong>Estudios Superiores:</strong> Preparación conceptual y metodológica para la universidad o terciarios.</li>
+                </ul>
+            </div>
+
+            <div id="estructura" class="tab-content">
+                <ul>
+                    <li><strong>Ciclo Básico:</strong> Común a todas las orientaciones.</li>
+                    <li><strong>Ciclo Orientado:</strong> Diversificado según áreas del conocimiento y del trabajo.</li>
+                    <li><strong>Carga Horaria:</strong> Mínimo de 25 horas reloj semanales.</li>
+                    <li><strong>Acompañamiento:</strong> Presencia de tutores, coordinadores y gabinetes interdisciplinarios.</li>
+                </ul>
+            </div>
+
+            <div id="practicas" class="tab-content">
+                <ul>
+                    <li>Destinadas a estudiantes <strong>mayores de 16 años</strong>.</li>
+                    <li>Duración máxima de <strong>hasta 6 meses</strong> en empresas u organismos públicos.</li>
+                    <li><strong>Carácter estrictamente educativo:</strong> No generan ni reemplazan una relación laboral.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sección 3: Actores Escolares -->
+        <section id="actores" class="card">
+            <h2>3. Rol Docente y Estudiantes</h2>
+            <div class="grid-2">
+                <div class="sub-card">
+                    <h3>El Docente</h3>
+                    <p><strong>Lugar:</strong> Agente clave del sistema educativo.</p>
+                    <p><strong>Responsabilidades:</strong></p>
+                    <ul>
+                        <li>Capacitación y actualización continua en servicio.</li>
+                        <li>Respeto por los derechos de adolescentes.</li>
+                        <li>Promoción del pensamiento crítico y diseño de estrategias inclusivas.</li>
+                    </ul>
+                </div>
+                <div class="sub-card">
+                    <h3>Los Estudiantes</h3>
+                    <p><strong>Derechos:</strong> Educación integral, ser evaluados con criterios transparentes, formar Centros de Estudiantes.</p>
+                    <p><strong>Obligaciones:</strong> Asistir con regularidad, estudiar, respetar normas de convivencia y cuidar el patrimonio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Vínculo con la Educación Tecnológica -->
+        <section id="tecnologica" class="card highlight">
+            <h2>4. Relación con la Educación Tecnológica</h2>
+            <p>La Ley N.º 26.206 respalda directamente los pilares de nuestra disciplina:</p>
+            <ul class="tech-list">
+                <li><strong>Enfoque Sociotécnico (Art. 30g):</strong> Entender la tecnología no solo como un artefacto, sino como una construcción humana que transforma la sociedad y el ambiente.</li>
+                <li><strong>Cultura Digital y TIC (Art. 88):</strong> Desarrollo de la comprensión crítica de las nuevas tecnologías y lenguajes.</li>
+                <li><strong>Resolución de Problemas:</strong> Fomento del análisis de productos, proyectos de diseño e innovación técnica.</li>
+            </ul>
+        </section>
+
+        <!-- Sección 5: Impacto en las Prácticas Docentes -->
+        <section id="impacto" class="card">
+            <h2>5. Impacto en la Práctica Docente Actual</h2>
+            <div class="accordion">
+                <button class="accordion-btn">1. Desafío de la Obligatoriedad e Inclusión</button>
+                <div class="panel">
+                    <p>Aulas heterogéneas que exigen diversificación metodológica para garantizar la permanencia y el egreso sin bajar la calidad.</p>
+                </div>
+
+                <button class="accordion-btn">2. Transversalidad Curricular</button>
+                <div class="panel">
+                    <p>Integración obligatoria de ESI, Educación Ambiental y formación ética dentro del taller o aula de Tecnología.</p>
+                </div>
+
+                <button class="accordion-btn">3. Trabajo Colaborativo</button>
+                <div class="panel">
+                    <p>Articulación constante con tutores, gabinetes y la comunidad técnica-productiva.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 6: Muro Interactivo de Cierre -->
+        <section id="debate" class="card debate-section">
+            <h2>Muro de Debate en Vivo</h2>
+            <p style="margin-bottom: 1rem;">Para todo el curso: <strong>¿Qué desafío principal enfrenta el docente de Tecnología en la Secundaria actual?</strong></p>
+            
+            <!-- Contenedor donde se cargarán los inputs e interacción -->
+            <div class="iframe-container"></div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Exposición Grupo 3 - Profesorado de Educación Tecnológica</p>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+/* ==========================================
+   VARIABLES Y ESTILOS GENERALES
+   ========================================== */
+:root {
+    --primary-color: #1e3a8a;       /* Azul institucional */
+    --secondary-color: #0284c7;     /* Azul claro dinámico */
+    --accent-color: #f59e0b;        /* Naranja cálido para resaltar */
+    --bg-color: #f8fafc;            /* Gris muy claro de fondo */
+    --card-bg: #ffffff;             /* Fondo blanco para las tarjetas */
+    --text-color: #334155;          /* Gris oscuro para lectura */
+    --text-light: #64748b;         /* Gris medio */
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   HEADER Y NAVEGACIÓN
+   ========================================== */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    padding: 2rem 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1.2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-nav {
+    background-color: var(--accent-color);
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+.btn-nav:hover {
+    background-color: #d97706 !important;
+}
+
+/* ==========================================
+   ESTRUCTURA PRINCIPAL Y TARJETAS
+   ========================================== */
+.main-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease;
+}
+
+.card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+}
+
+/* Portada / Hero */
+.hero {
+    text-align: center;
+    background: linear-gradient(to right, #ffffff, #f1f5f9);
+    border-left: 6px solid var(--accent-color);
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.4rem 1rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* Grillas */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.mini-card, .sub-card {
+    background: #f1f5f9;
+    padding: 1.2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.mini-card h3, .sub-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Tarjeta destacada de Educación Tecnológica */
+.highlight {
+    background-color: #f0f9ff;
+    border: 2px solid var(--secondary-color);
+}
+
+.tech-list li {
+    margin-bottom: 0.8rem;
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.tech-list li::before {
+    content: "⚙️";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* ==========================================
+   PESTAÑAS (TABS)
+   ========================================== */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.5rem 0 1rem 0;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tab-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: none;
+    font-weight: bold;
+    color: var(--text-light);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--secondary-color);
+    border-bottom-color: var(--secondary-color);
+}
+
+.tab-content {
+    display: none;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content ul {
+    padding-left: 1.2rem;
+}
+
+/* ==========================================
+   ACORDEÓN (IMPACTO DOCENTE)
+   ========================================== */
+.accordion {
+    margin-top: 1rem;
+}
+
+.accordion-btn {
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.accordion-btn:hover, .accordion-btn.active {
+    background-color: #e2e8f0;
+}
+
+.panel {
+    padding: 0 1rem;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.panel p {
+    padding: 1rem 0;
+}
+
+/* ==========================================
+   SECCIÓN DEBATE / FOOTER
+   ========================================== */
+.debate-section {
+    border: 2px dashed var(--accent-color);
+    text-align: center;
+}
+
+.iframe-container {
+    margin-top: 1.5rem;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* Adaptación para Pantallas Pequeñas */
+@media (max-width: 600px) {
+    header h1 { font-size: 1.4rem; }
+    nav ul { flex-direction: column; }
+    .tabs { flex-direction: column; }
+}
+
+/* Animación suave de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* ==========================================
+   ANIMACIONES FLUIDAS EN HOVER Y LEAVE (IN / OUT)
+   ========================================== */
+
+/* 1. Definimos la transición en el estado NORMAL para que aplique AL ENTRAR Y AL SALIR */
+nav a {
+    display: inline-block; /* Necesario para que 'transform' escale suavemente en enlaces */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tab-btn, 
+.accordion-btn, 
+button[type="submit"] {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 2. Estados HOVER (Al pasar el mouse) */
+nav a:hover {
+    transform: scale(1.08);
+}
+
+.btn-nav:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.tab-btn:hover {
+    transform: scale(1.05);
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Estados ACTIVE (Sensación de click/pulsación) */
+nav a:active, 
+.tab-btn:active, 
+button[type="submit"]:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease; /* Feedback rápido al hacer clic */
+}
+
+/* ==========================================
+   MENÚ HAMBURGUESA Y MÓVIL (CORREGIDO)
+   ========================================== */
+
+.hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.2rem 0.6rem;
+    line-height: 1;
+    border-radius: 6px;
+    z-index: 1001;
+}
+
+/* Aplicar estilos móviles en pantallas medianas y chicas */
+@media (max-width: 850px) {
+    .hamburger-btn {
+        display: block; /* Muestra el botón ☰ */
+    }
+
+    .logo-title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .header-logo {
+        max-height: 45px;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    /* Ocultamos la lista de navegación por defecto */
+    .nav-menu {
+        display: none; 
+        width: 100%;
+        margin-top: 0.8rem;
+    }
+
+    /* Cuando JavaScript agrega la clase 'active', el menú APARECE */
+    .nav-menu.active {
+        display: block !important;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        background: rgba(0, 0, 0, 0.25);
+        padding: 0.8rem;
+        border-radius: 8px;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.6rem;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+    }
+}
