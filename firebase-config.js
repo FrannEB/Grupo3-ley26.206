@@ -1,9 +1,6 @@
 // ============================================================
 // CONFIGURACIÓN DE FIREBASE
 // ============================================================
-// Estos son los datos reales de tu proyecto "muro-debate-tecno".
-// No hace falta que toques nada de este archivo.
-// ============================================================
 
 const firebaseConfig = {
     apiKey: "AIzaSyAt77wKnpIuKYRCXbOVkWIi4ht8y5SNzhQ",
