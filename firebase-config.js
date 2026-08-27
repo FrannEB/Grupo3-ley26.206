@@ -11,6 +11,6 @@ const firebaseConfig = {
     appId: "1:259038354086:web:23045f7a9ccaaa3baef267"
 };
 
-// Inicializa Firebase (usando el SDK "compat" que cargamos en index.html)
+// Se inicializa Firebase (usando el SDK "compat" que cargue en index.html)
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
