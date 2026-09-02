@@ -1,0 +1,7 @@
+# Normaliza los fines de línea: siempre LF dentro del repositorio.
+# Evita que Windows genere diffs gigantes por cambios de CRLF/LF.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
