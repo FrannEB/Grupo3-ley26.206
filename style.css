@@ -355,9 +355,6 @@ footer {
     header h1 { font-size: 1.4rem; }
     nav ul { flex-direction: column; }
     .tabs { flex-direction: column; }
-    /* En pantallas chicas, las grillas 2x2 pasan a 1 columna */
-    .grid-4,
-    #tecnologica .objetivos-grid { grid-template-columns: 1fr; }
 }
 
 /* Animación suave de aparición */
@@ -620,9 +617,14 @@ nav a.active-scroll {
    ========================================== */
 .grid-4 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
+}
+
+/* En celular, la grilla 2x2 pasa a 1 columna */
+@media (max-width: 600px) {
+    .grid-4 { grid-template-columns: 1fr; }
 }
 
 .grid-3col {
@@ -663,7 +665,12 @@ nav a.active-scroll {
 
 /* En la sección 4 el desglose del Art. 30f son 4 bloques: los mostramos 2x2 */
 #tecnologica .objetivos-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* En celular pasan a 1 columna (si no, la 2da columna se sale de la tarjeta) */
+@media (max-width: 640px) {
+    #tecnologica .objetivos-grid { grid-template-columns: 1fr; }
 }
 
 .objetivo-item {
