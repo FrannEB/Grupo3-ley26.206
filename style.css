@@ -141,8 +141,8 @@ nav a:hover {
 
 /* Imagen simbólica decorativa (portada) */
 .hero-imagen {
-    margin: 1.7rem auto 0;
-    max-width: 640px;
+    margin: 1.5rem auto 0;
+    max-width: 360px;
 }
 
 .hero-imagen img {
