@@ -32,7 +32,7 @@ body {
 header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: #ffffff;
-    padding: 1rem 0.5rem 0.5rem;
+    padding: 2rem 1rem 1rem;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -426,5 +426,560 @@ button[type="submit"]:active {
         padding: 0.6rem;
         background: rgba(255, 255, 255, 0.15);
         border-radius: 6px;
+    }
+}
+/* ==========================================
+   ACCESIBILIDAD Y MOVIMIENTO REDUCIDO
+   ========================================== */
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================
+   BARRA DE PROGRESO DE LECTURA (EN EL HEADER)
+   ========================================== */
+.progress-track {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-color), #fbbf24);
+    transition: width 0.12s ease-out;
+}
+
+/* Resalta el link de navegación de la sección visible (scrollspy) */
+nav a.active-scroll {
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+/* ==========================================
+   REVELADO DE SECCIONES AL HACER SCROLL
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Los reveals reemplazan la animación fija de entrada que traía .card */
+.card.reveal {
+    animation: none;
+}
+
+/* ==========================================
+   ETIQUETAS DE ARTÍCULO Y RANGO DE SECCIÓN
+   ========================================== */
+.section-range {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: #eef2f7;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    vertical-align: middle;
+    margin-left: 0.6rem;
+    letter-spacing: 0.2px;
+}
+
+.art-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #b45309;
+    background: rgba(245, 158, 11, 0.14);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 0.12rem 0.55rem;
+    border-radius: 20px;
+    margin: 0.15rem 0.3rem 0.15rem 0;
+    white-space: nowrap;
+    cursor: default;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.art-tag:hover {
+    transform: translateY(-2px);
+    background: rgba(245, 158, 11, 0.26);
+}
+
+.tab-subheading {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 1rem 0 0.4rem;
+    font-size: 0.95rem;
+}
+
+.tab-note {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 0.8rem;
+    font-style: italic;
+}
+
+/* Las pestañas ahora pueden envolver si no entran en una fila */
+.tabs {
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   GRILLAS NUEVAS (FINALIDAD / ACTORES)
+   ========================================== */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.grid-3col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.mini-card, .sub-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mini-card:hover, .sub-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 18px -4px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+}
+
+.badge {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
+}
+
+/* ==========================================
+   OBJETIVOS (GRILLA DE INCISOS DEL ART. 30)
+   ========================================== */
+.objetivos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.9rem;
+    margin-top: 0.8rem;
+}
+
+.objetivo-item {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.8rem;
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.objetivo-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    border-color: var(--secondary-color);
+}
+
+.objetivo-item .art-tag {
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.objetivo-item strong {
+    color: var(--primary-color);
+}
+
+.objetivo-item p {
+    margin-top: 0.25rem;
+    font-size: 0.88rem;
+    color: var(--text-light);
+}
+
+/* ==========================================
+   MODALIDADES Y CONTENIDOS TRANSVERSALES
+   ========================================== */
+.modalidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.modalidad-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.modalidad-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.modalidad-icon {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.35s ease;
+}
+
+.modalidad-card:hover .modalidad-icon {
+    transform: scale(1.2) rotate(-6deg);
+}
+
+.modalidad-card h3 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.modalidad-card .art-tag {
+    margin: 0.3rem 0;
+}
+
+.modalidad-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+}
+
+.modalidad-card.transversal {
+    border-top: 3px solid var(--accent-color);
+}
+
+/* ==========================================
+   FRASES CLAVE (QUOTE CARDS DESPLEGABLES)
+   ========================================== */
+.quote-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+.quote-card {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #fff7ed;
+    border: 1px solid #fde68a;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 0.7rem 2.2rem 0.7rem 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    position: relative;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.quote-card:hover {
+    background: #fef3c7;
+    transform: translateX(3px);
+}
+
+.quote-card::after {
+    content: '+';
+    position: absolute;
+    top: 0.55rem;
+    right: 0.9rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.quote-card[aria-expanded="true"]::after {
+    transform: rotate(45deg);
+}
+
+.quote-text {
+    display: block;
+    font-weight: 600;
+    color: #92400e;
+    font-style: italic;
+}
+
+.quote-panel {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.quote-card[aria-expanded="true"] .quote-panel {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================
+   MINI-MUROS DE COMENTARIOS POR SECCIÓN
+   ========================================== */
+.mini-muro {
+    margin-top: 1.8rem;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 1rem;
+}
+
+.mini-muro-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.mini-muro-toggle:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.mini-muro-icon {
+    font-size: 1.1rem;
+}
+
+.mini-muro-label {
+    flex: 1;
+    text-align: left;
+}
+
+.mini-muro-count {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-light);
+    background: #ffffff;
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    min-width: 1.4rem;
+    text-align: center;
+}
+
+.mini-muro-count:empty {
+    display: none;
+}
+
+.chevron {
+    display: inline-block;
+    color: var(--text-light);
+    transition: transform 0.3s ease;
+}
+
+.mini-muro-toggle[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+}
+
+.mini-muro-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.mini-muro.is-open .mini-muro-panel {
+    max-height: 900px;
+}
+
+.mini-muro-prompt {
+    margin: 0.9rem 0 0.6rem;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.92rem;
+}
+
+.mini-muro-body {
+    padding-bottom: 0.4rem;
+}
+
+/* Formularios y listas inyectados por script.js (muro general y mini-muros) */
+.mini-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.mini-input, .mini-textarea {
+    padding: 0.6rem 0.7rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mini-input:focus, .mini-textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.mini-textarea {
+    resize: vertical;
+}
+
+.mini-submit {
+    align-self: flex-start;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    border: none;
+    padding: 0.55rem 1.2rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mini-submit:hover {
+    transform: scale(1.05);
+    background-color: #0369a1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.mini-submit:active {
+    transform: scale(0.96);
+}
+
+.mini-submit:disabled {
+    opacity: 0.7;
+    cursor: default;
+    transform: none;
+}
+
+.mini-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 0.3rem;
+}
+
+.mini-comment {
+    background: #ffffff;
+    border-left: 3px solid var(--secondary-color);
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.mini-comment strong {
+    color: var(--primary-color);
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 0.15rem;
+}
+
+.mini-comment p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-color);
+}
+
+.mini-empty, .mini-error {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.mini-error {
+    color: #dc2626;
+    font-style: normal;
+}
+
+/* ==========================================
+   BOTÓN FLOTANTE "VOLVER ARRIBA"
+   ========================================== */
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(16px) scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.25s ease;
+    z-index: 1500;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+    background: var(--secondary-color);
+    transform: translateY(-4px) scale(1.08);
+}
+
+.back-to-top:active {
+    transform: scale(0.92);
+}
+
+/* Adaptaciones extra para pantallas chicas */
+@media (max-width: 600px) {
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+        width: 2.6rem;
+        height: 2.6rem;
     }
 }

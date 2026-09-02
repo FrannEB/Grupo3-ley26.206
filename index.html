@@ -19,7 +19,7 @@
             <h1>Ley de Educación Nacional N.º 26.206</h1>
             <p class="subtitle">Análisis del Nivel Secundario - Profesorado de Educación Tecnológica</p>
             <!-- Botón de Hamburguesa para Celulares -->
-                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
                     ☰
                 </button>
             <nav class="nav-menu" id="navMenu">
@@ -33,6 +33,10 @@
                     <li><a href="#debate" class="btn-nav">Muro Interactivo</a></li>
                 </ul>
             </nav>
+            <!-- Barra de progreso de lectura -->
+            <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
         </div>
     </header>
 
@@ -40,127 +44,439 @@
     <main class="main-container">
 
         <!-- Sección Inicio / Portada -->
-        <section id="inicio" class="card hero">
+        <section id="inicio" class="card hero reveal">
             <h2>Práctica Profesional III</h2>
             <p><strong>Cátedra:</strong> Profesorado de Educación Tecnológica</p>
             <p><strong>Grupo 3:</strong> Dias Alejandra | Burik Sonia | Coronel Carla | Bogado Franco</p>
-            <div class="badge">Especial: Nivel Secundario (Arts. 29 al 33)</div>
+            <div class="badge">Especial: Nivel Secundario y su marco normativo (Arts. 15 al 134)</div>
         </section>
 
         <!-- Sección 1: Finalidad General -->
-        <section id="finalidad" class="card">
-            <h2>1. Finalidad de la Educación en Argentina</h2>
-            <p>Según la Ley N.º 26.206, la educación y el conocimiento son un <strong>bien público y un derecho personal y social</strong>, garantizados por el Estado.</p>
-            <div class="grid-3">
+        <section id="finalidad" class="card reveal">
+            <h2>1. Finalidad de la Educación en Argentina <span class="section-range">Arts. 1-11</span></h2>
+            <p>Según la Ley N.º 26.206, la educación y el conocimiento son un <strong>bien público y un derecho personal y social</strong>, garantizados por el Estado <span class="art-tag">Art. 2</span>. El Estado Nacional, las Provincias y la CABA tienen la responsabilidad principal e indelegable de proveerla, garantizando igualdad, gratuidad y equidad <span class="art-tag">Art. 4</span>.</p>
+            <div class="grid-4">
                 <div class="mini-card">
                     <h3>Inclusión y Equidad</h3>
+                    <span class="art-tag">Art. 11e, 11f</span>
                     <p>Garantizar la igualdad de oportunidades y erradicar cualquier tipo de discriminación.</p>
                 </div>
                 <div class="mini-card">
                     <h3>Democracia</h3>
+                    <span class="art-tag">Art. 3, 11c</span>
                     <p>Formar ciudadanos conscientes de sus derechos, deberes y valores éticos.</p>
                 </div>
                 <div class="mini-card">
                     <h3>Desarrollo Social</h3>
+                    <span class="art-tag">Art. 3</span>
                     <p>Vincular el aprendizaje con el desarrollo socioeconómico y la identidad nacional.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Gratuidad y Financiamiento</h3>
+                    <span class="art-tag">Art. 4, 9</span>
+                    <p>El Estado garantiza servicios gratuitos y un piso de inversión: mínimo 6% del PBI destinado a educación.</p>
+                </div>
+            </div>
+
+            <div class="mini-muro" data-seccion="finalidad">
+                <button class="mini-muro-toggle" type="button" aria-expanded="false">
+                    <span class="mini-muro-icon">💬</span>
+                    <span class="mini-muro-label">Comentá esta sección</span>
+                    <span class="mini-muro-count" data-count-for="finalidad"></span>
+                    <span class="chevron">▾</span>
+                </button>
+                <div class="mini-muro-panel">
+                    <p class="mini-muro-prompt">¿Por qué creés que la educación es un derecho y no solo un servicio?</p>
+                    <div class="mini-muro-body"></div>
                 </div>
             </div>
         </section>
 
         <!-- Sección 2: El Nivel Secundario -->
-        <section id="secundario" class="card">
-            <h2>2. Características y Propósitos del Nivel Secundario</h2>
-            <p>Estatus: <strong>Obligatorio</strong> y constituye una unidad pedagógica y organizativa (Arts. 29-33).</p>
+        <section id="secundario" class="card reveal">
+            <h2>2. Características y Propósitos del Nivel Secundario <span class="section-range">Arts. 15-17, 29-61, 134</span></h2>
+            <p>Estatus: <strong>Obligatorio</strong> y constituye una unidad pedagógica y organizativa <span class="art-tag">Art. 29</span>, destinada a adolescentes y jóvenes que completaron la Educación Primaria.</p>
             
             <div class="tabs">
                 <button class="tab-btn active" data-tab="propositos">Triple Propósito</button>
                 <button class="tab-btn" data-tab="estructura">Estructura Curricular</button>
                 <button class="tab-btn" data-tab="practicas">Prácticas Educativas</button>
+                <button class="tab-btn" data-tab="modalidades">Modalidades del Nivel</button>
+                <button class="tab-btn" data-tab="transversales">Contenidos Transversales</button>
             </div>
 
             <!-- Contenido de Pestañas -->
             <div id="propositos" class="tab-content active">
+                <p>El <strong>Art. 30</strong> establece la triple finalidad de la Educación Secundaria:</p>
                 <ul>
                     <li><strong>Formación Ciudadana:</strong> Capacitar para el ejercicio pleno de la ciudadanía democrática.</li>
                     <li><strong>Inserción Laboral:</strong> Habilitar para la incorporación al mundo del trabajo y la producción.</li>
                     <li><strong>Estudios Superiores:</strong> Preparación conceptual y metodológica para la universidad o terciarios.</li>
                 </ul>
+                <p class="tab-subheading">Objetivos específicos (Art. 30, incisos a-j)</p>
+                <div class="objetivos-grid">
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30a</span>
+                        <div><strong>Formación Ética y Democrática</strong><p>Derechos humanos, pluralismo, rechazo a la discriminación, preservación del patrimonio.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30b</span>
+                        <div><strong>Ciudadanía Crítica</strong><p>Usar el conocimiento para comprender y transformar el entorno social, económico y ambiental.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30c</span>
+                        <div><strong>Autonomía y Método de Estudio</strong><p>Capacidades de investigación, trabajo individual y en equipo, esfuerzo e iniciativa.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30d</span>
+                        <div><strong>Competencias Lingüísticas</strong><p>Lengua española oral y escrita, más comprensión y expresión en una lengua extranjera.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30e</span>
+                        <div><strong>Saber Integrado</strong><p>Acceso al conocimiento a través de las distintas áreas y disciplinas que lo constituyen.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30f</span>
+                        <div><strong>TIC Crítica</strong><p>Comprensión y utilización inteligente y crítica de los nuevos lenguajes tecnológicos.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30g</span>
+                        <div><strong>Vínculo Productivo</strong><p>Relacionar a los estudiantes con el mundo del trabajo, la ciencia y la tecnología.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30h</span>
+                        <div><strong>Orientación Vocacional</strong><p>Procesos que permitan una elección profesional y ocupacional informada.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Art. 30i-j</span>
+                        <div><strong>Arte y Educación Física</strong><p>Creación artística, placer estético y formación corporal y motriz.</p></div>
+                    </div>
+                </div>
             </div>
 
             <div id="estructura" class="tab-content">
                 <ul>
-                    <li><strong>Ciclo Básico:</strong> Común a todas las orientaciones.</li>
-                    <li><strong>Ciclo Orientado:</strong> Diversificado según áreas del conocimiento y del trabajo.</li>
-                    <li><strong>Carga Horaria:</strong> Mínimo de 25 horas reloj semanales.</li>
-                    <li><strong>Acompañamiento:</strong> Presencia de tutores, coordinadores y gabinetes interdisciplinarios.</li>
+                    <li><strong>Ciclo Básico:</strong> Común a todas las orientaciones. <span class="art-tag">Art. 31</span></li>
+                    <li><strong>Ciclo Orientado:</strong> Diversificado según áreas del conocimiento y del trabajo. <span class="art-tag">Art. 31</span></li>
+                    <li><strong>Carga Horaria:</strong> Mínimo de 25 horas reloj semanales. <span class="art-tag">Art. 32c</span></li>
+                    <li><strong>Acompañamiento:</strong> Presencia de tutores, coordinadores y gabinetes interdisciplinarios. <span class="art-tag">Art. 32b, 32h</span></li>
                 </ul>
+                <p class="tab-subheading">Dos formatos posibles a nivel jurisdiccional (Art. 134)</p>
+                <div class="objetivos-grid">
+                    <div class="objetivo-item">
+                        <span class="art-tag">Opción A</span>
+                        <div><strong>6 + 6</strong><p>Primaria de 6 años + Secundaria de 6 años.</p></div>
+                    </div>
+                    <div class="objetivo-item">
+                        <span class="art-tag">Opción B</span>
+                        <div><strong>7 + 5</strong><p>Primaria de 7 años + Secundaria de 5 años.</p></div>
+                    </div>
+                </div>
+                <p class="tab-note">El Sistema Educativo Nacional se organiza en 4 niveles (Inicial, Primaria, Secundaria, Superior) y 8 modalidades <span class="art-tag">Art. 15-17</span> — ver la pestaña "Modalidades del Nivel".</p>
             </div>
 
             <div id="practicas" class="tab-content">
                 <ul>
-                    <li>Destinadas a estudiantes <strong>mayores de 16 años</strong>.</li>
-                    <li>Duración máxima de <strong>hasta 6 meses</strong> en empresas u organismos públicos.</li>
-                    <li><strong>Carácter estrictamente educativo:</strong> No generan ni reemplazan una relación laboral.</li>
+                    <li>Destinadas a estudiantes <strong>mayores de 16 años</strong>, durante el período lectivo. <span class="art-tag">Art. 33</span></li>
+                    <li>Duración máxima de <strong>hasta 6 meses</strong>, en empresas, organismos estatales u organizaciones de la sociedad civil. <span class="art-tag">Art. 33</span></li>
+                    <li><strong>Carácter estrictamente educativo:</strong> No generan ni reemplazan una relación laboral ni vínculo contractual. <span class="art-tag">Art. 33</span></li>
+                    <li>Se realizan con acompañamiento de docentes y/o autoridades pedagógicas designadas a tal fin. <span class="art-tag">Art. 33</span></li>
+                    <li>Escuelas técnicas y agrotécnicas: se rigen además por la Ley N.° 26.058. <span class="art-tag">Ley 26.058, Art. 15-16</span></li>
                 </ul>
+            </div>
+
+            <div id="modalidades" class="tab-content">
+                <p>El Nivel Secundario no es homogéneo: se articula con modalidades que atienden necesidades específicas <span class="art-tag">Art. 17</span>.</p>
+                <div class="modalidades-grid">
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">🔧</span>
+                        <h3>Técnico Profesional</h3>
+                        <span class="art-tag">Art. 38</span>
+                        <p>Formación de técnicos medios en áreas ocupacionales específicas.</p>
+                    </div>
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">🎨</span>
+                        <h3>Artística</h3>
+                        <span class="art-tag">Art. 39-41</span>
+                        <p>Música, Danza, Artes Visuales, Plástica, Teatro y otras especializaciones.</p>
+                    </div>
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">♿</span>
+                        <h3>Especial</h3>
+                        <span class="art-tag">Art. 42-45</span>
+                        <p>Garantiza la inclusión de estudiantes con discapacidades temporales o permanentes.</p>
+                    </div>
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">📖</span>
+                        <h3>Jóvenes y Adultos</h3>
+                        <span class="art-tag">Art. 46-48</span>
+                        <p>Garantiza la secundaria a quienes no la completaron en la edad reglamentaria.</p>
+                    </div>
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">🌾</span>
+                        <h3>Rural</h3>
+                        <span class="art-tag">Art. 49-51</span>
+                        <p>Modelos adaptados a la ruralidad, con igual calidad que en zonas urbanas.</p>
+                    </div>
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">🌐</span>
+                        <h3>Intercultural Bilingüe</h3>
+                        <span class="art-tag">Art. 52-54</span>
+                        <p>Preserva lenguas, cosmovisiones e identidades de los pueblos indígenas.</p>
+                    </div>
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">🔒</span>
+                        <h3>Contextos de Privación de Libertad</h3>
+                        <span class="art-tag">Art. 55-59</span>
+                        <p>Garantiza el derecho a la educación con titulación de validez nacional.</p>
+                    </div>
+                    <div class="modalidad-card">
+                        <span class="modalidad-icon">🏥</span>
+                        <h3>Domiciliaria y Hospitalaria</h3>
+                        <span class="art-tag">Art. 60-61</span>
+                        <p>Continuidad pedagógica cuando la salud impide asistir 30 días o más.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="transversales" class="tab-content">
+                <p>Contenidos de enseñanza obligatoria en todas las escuelas secundarias del país:</p>
+                <div class="modalidades-grid">
+                    <div class="modalidad-card transversal">
+                        <span class="modalidad-icon">🌎</span>
+                        <h3>Perspectiva Latinoamericana</h3>
+                        <span class="art-tag">Art. 92a</span>
+                        <p>Fortalecimiento de la región, particularmente del MERCOSUR.</p>
+                    </div>
+                    <div class="modalidad-card transversal">
+                        <span class="modalidad-icon">🇦🇷</span>
+                        <h3>Causa Malvinas</h3>
+                        <span class="art-tag">Art. 92b</span>
+                        <p>Recuperación de las Islas Malvinas, Georgias del Sur y Sandwich del Sur.</p>
+                    </div>
+                    <div class="modalidad-card transversal">
+                        <span class="modalidad-icon">🕯️</span>
+                        <h3>Memoria y Derechos Humanos</h3>
+                        <span class="art-tag">Art. 92c</span>
+                        <p>Reflexión sobre el terrorismo de Estado y defensa del Estado de Derecho.</p>
+                    </div>
+                    <div class="modalidad-card transversal">
+                        <span class="modalidad-icon">🌱</span>
+                        <h3>Educación Ambiental</h3>
+                        <span class="art-tag">Art. 89</span>
+                        <p>Valores y actitudes acordes a un ambiente equilibrado y sostenible.</p>
+                    </div>
+                    <div class="modalidad-card transversal">
+                        <span class="modalidad-icon">💜</span>
+                        <h3>ESI e Igualdad de Género</h3>
+                        <span class="art-tag">Art. 11p, 92f</span>
+                        <p>Formación integral de una sexualidad responsable y sin discriminación.</p>
+                    </div>
+                    <div class="modalidad-card transversal">
+                        <span class="modalidad-icon">🤝</span>
+                        <h3>Cooperativismo y Mutualismo</h3>
+                        <span class="art-tag">Art. 90</span>
+                        <p>Incorporación de sus principios y valores en la enseñanza y capacitación docente.</p>
+                    </div>
+                    <div class="modalidad-card transversal">
+                        <span class="modalidad-icon">🚫</span>
+                        <h3>Prevención de Adicciones</h3>
+                        <span class="art-tag">Art. 11q</span>
+                        <p>Valores y actitudes para prevenir el uso indebido de drogas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-muro" data-seccion="secundario">
+                <button class="mini-muro-toggle" type="button" aria-expanded="false">
+                    <span class="mini-muro-icon">💬</span>
+                    <span class="mini-muro-label">Comentá esta sección</span>
+                    <span class="mini-muro-count" data-count-for="secundario"></span>
+                    <span class="chevron">▾</span>
+                </button>
+                <div class="mini-muro-panel">
+                    <p class="mini-muro-prompt">¿Qué parte de la estructura del Nivel Secundario te resulta más importante?</p>
+                    <div class="mini-muro-body"></div>
+                </div>
             </div>
         </section>
 
         <!-- Sección 3: Actores Escolares -->
-        <section id="actores" class="card">
-            <h2>3. Rol Docente y Estudiantes</h2>
-            <div class="grid-2">
+        <section id="actores" class="card reveal">
+            <h2>3. Rol Docente, Estudiantes y Familias <span class="section-range">Arts. 67-78, 125-129</span></h2>
+            <div class="grid-3col">
                 <div class="sub-card">
                     <h3>El Docente</h3>
-                    <p><strong>Lugar:</strong> Agente clave del sistema educativo.</p>
-                    <p><strong>Responsabilidades:</strong></p>
+                    <p><strong>Lugar:</strong> Agente clave del sistema educativo. <span class="art-tag">Art. 67</span></p>
+                    <p class="tab-subheading">Derechos</p>
                     <ul>
-                        <li>Capacitación y actualización continua en servicio.</li>
-                        <li>Respeto por los derechos de adolescentes.</li>
-                        <li>Promoción del pensamiento crítico y diseño de estrategias inclusivas.</li>
+                        <li>Capacitación y actualización gratuita y en servicio. <span class="art-tag">Art. 67b</span></li>
+                        <li>Libertad de cátedra y libertad de enseñanza. <span class="art-tag">Art. 67c</span></li>
+                        <li>Participación activa en el proyecto institucional. <span class="art-tag">Art. 67d</span></li>
                     </ul>
+                    <p class="tab-subheading">Obligaciones</p>
+                    <ul>
+                        <li>Capacitarse y actualizarse en forma permanente. <span class="art-tag">Art. 67-obl c</span></li>
+                        <li>Proteger y garantizar los derechos de niños/as y adolescentes. <span class="art-tag">Art. 67-obl e</span></li>
+                    </ul>
+                    <p class="tab-subheading">Formación Docente</p>
+                    <p>Se estructura en dos ciclos: formación básica común y formación especializada <span class="art-tag">Art. 75</span>. El Instituto Nacional de Formación Docente coordina las políticas de formación inicial y continua. <span class="art-tag">Art. 76</span></p>
                 </div>
                 <div class="sub-card">
                     <h3>Los Estudiantes</h3>
-                    <p><strong>Derechos:</strong> Educación integral, ser evaluados con criterios transparentes, formar Centros de Estudiantes.</p>
-                    <p><strong>Obligaciones:</strong> Asistir con regularidad, estudiar, respetar normas de convivencia y cuidar el patrimonio.</p>
+                    <p class="tab-subheading">Derechos</p>
+                    <ul>
+                        <li>Educación integral e igualitaria en calidad y cantidad. <span class="art-tag">Art. 126a</span></li>
+                        <li>Ser evaluados con criterios rigurosos e informados al respecto. <span class="art-tag">Art. 126e</span></li>
+                        <li>Formar centros, asociaciones y clubes de estudiantes. <span class="art-tag">Art. 126h</span></li>
+                        <li>Ser protegidos contra toda agresión física, psicológica o moral. <span class="art-tag">Art. 126d</span></li>
+                    </ul>
+                    <p class="tab-subheading">Deberes</p>
+                    <ul>
+                        <li>Asistir a clase regularmente y con puntualidad. <span class="art-tag">Art. 127f</span></li>
+                        <li>Estudiar y esforzarse por el máximo desarrollo posible. <span class="art-tag">Art. 127a</span></li>
+                        <li>Respetar las normas de convivencia de la institución. <span class="art-tag">Art. 127d-e</span></li>
+                    </ul>
+
+                    <p class="tab-subheading">Frases para pensar la exposición</p>
+                    <div class="quote-list">
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"El estudiante tiene voz dentro de la escuela."</span>
+                            <span class="quote-panel">Puede participar y expresarse dentro de la institución. <span class="art-tag">Art. 11i, 126h</span></span>
+                        </button>
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"Todo derecho implica también una responsabilidad."</span>
+                            <span class="quote-panel">Tiene derecho a aprender, pero también debe asistir, estudiar y comprometerse. <span class="art-tag">Art. 125, 127a</span></span>
+                        </button>
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"Aprender en un ambiente de respeto es un derecho."</span>
+                            <span class="quote-panel">Debe recibir un trato digno y una educación de calidad. <span class="art-tag">Art. 126a, 126d</span></span>
+                        </button>
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"La convivencia también se aprende."</span>
+                            <span class="quote-panel">Debe respetar a los demás, las normas y cuidar la institución. <span class="art-tag">Art. 127d-e, 127g</span></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="sub-card">
+                    <h3>Padres, Madres y Tutores/as</h3>
+                    <p class="tab-subheading">Derechos</p>
+                    <ul>
+                        <li>Ser reconocidos como agentes naturales y primarios de la educación. <span class="art-tag">Art. 128a</span></li>
+                        <li>Elegir la institución cuyo ideario responda a sus convicciones. <span class="art-tag">Art. 128c</span></li>
+                        <li>Ser informados periódicamente sobre la evolución educativa. <span class="art-tag">Art. 128d</span></li>
+                    </ul>
+                    <p class="tab-subheading">Deberes</p>
+                    <ul>
+                        <li>Asegurar la concurrencia a los establecimientos escolares. <span class="art-tag">Art. 129b</span></li>
+                        <li>Seguir y apoyar la evolución del proceso educativo. <span class="art-tag">Art. 129c</span></li>
+                        <li>Respetar la autoridad pedagógica del/de la docente. <span class="art-tag">Art. 129d</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mini-muro" data-seccion="actores">
+                <button class="mini-muro-toggle" type="button" aria-expanded="false">
+                    <span class="mini-muro-icon">💬</span>
+                    <span class="mini-muro-label">Comentá esta sección</span>
+                    <span class="mini-muro-count" data-count-for="actores"></span>
+                    <span class="chevron">▾</span>
+                </button>
+                <div class="mini-muro-panel">
+                    <p class="mini-muro-prompt">¿Qué responsabilidad te parece más difícil de cumplir: la del docente o la del estudiante?</p>
+                    <div class="mini-muro-body"></div>
                 </div>
             </div>
         </section>
 
         <!-- Sección 4: Vínculo con la Educación Tecnológica -->
-        <section id="tecnologica" class="card highlight">
-            <h2>4. Relación con la Educación Tecnológica</h2>
+        <section id="tecnologica" class="card highlight reveal">
+            <h2>4. Relación con la Educación Tecnológica <span class="section-range">Arts. 30f-g, 71-73, 88</span></h2>
             <p>La Ley N.º 26.206 respalda directamente los pilares de nuestra disciplina:</p>
             <ul class="tech-list">
-                <li><strong>Enfoque Sociotécnico (Art. 30g):</strong> Entender la tecnología no solo como un artefacto, sino como una construcción humana que transforma la sociedad y el ambiente.</li>
-                <li><strong>Cultura Digital y TIC (Art. 88):</strong> Desarrollo de la comprensión crítica de las nuevas tecnologías y lenguajes.</li>
-                <li><strong>Resolución de Problemas:</strong> Fomento del análisis de productos, proyectos de diseño e innovación técnica.</li>
+                <li><strong>Enfoque Sociotécnico:</strong> Entender la tecnología no solo como un artefacto, sino como una construcción humana que transforma la sociedad y el ambiente. <span class="art-tag">Art. 30g</span></li>
+                <li><strong>Cultura Digital y TIC:</strong> Desarrollo de la comprensión crítica de las nuevas tecnologías y lenguajes, como objetivo específico del Nivel Secundario y como contenido curricular indispensable en todo el sistema. <span class="art-tag">Art. 30f, 88</span></li>
+                <li><strong>Resolución de Problemas:</strong> Fomento del análisis de productos, proyectos de diseño e innovación técnica. <span class="art-tag">Art. 30g</span></li>
+                <li><strong>Investigación e Innovación Educativa:</strong> La ley incentiva experimentar y sistematizar propuestas que renueven las prácticas de enseñanza, algo central para un proyecto de aula en Tecnología. <span class="art-tag">Art. 73c</span></li>
+                <li><strong>Formación Docente Continua:</strong> El desarrollo profesional del profesorado en tecnología es gratuito y a lo largo de toda la carrera. <span class="art-tag">Art. 67b, 71</span></li>
             </ul>
+
+            <div class="mini-muro" data-seccion="tecnologica">
+                <button class="mini-muro-toggle" type="button" aria-expanded="false">
+                    <span class="mini-muro-icon">💬</span>
+                    <span class="mini-muro-label">Comentá esta sección</span>
+                    <span class="mini-muro-count" data-count-for="tecnologica"></span>
+                    <span class="chevron">▾</span>
+                </button>
+                <div class="mini-muro-panel">
+                    <p class="mini-muro-prompt">¿Cómo se relaciona esto con lo que estás aprendiendo en tu propia formación como docente de Tecnología?</p>
+                    <div class="mini-muro-body"></div>
+                </div>
+            </div>
         </section>
 
         <!-- Sección 5: Impacto en las Prácticas Docentes -->
-        <section id="impacto" class="card">
-            <h2>5. Impacto en la Práctica Docente Actual</h2>
+        <section id="impacto" class="card reveal">
+            <h2>5. Impacto en la Práctica Docente Actual <span class="section-range">Arts. 79-84, 89-92, 123</span></h2>
             <div class="accordion">
-                <button class="accordion-btn">1. Desafío de la Obligatoriedad e Inclusión</button>
+                <button class="accordion-btn" aria-expanded="false">1. Desafío de la Obligatoriedad e Inclusión</button>
                 <div class="panel">
-                    <p>Aulas heterogéneas que exigen diversificación metodológica para garantizar la permanencia y el egreso sin bajar la calidad.</p>
+                    <p>Aulas heterogéneas que exigen diversificación metodológica para garantizar la permanencia y el egreso sin bajar la calidad. <span class="art-tag">Art. 79-80</span></p>
                 </div>
 
-                <button class="accordion-btn">2. Transversalidad Curricular</button>
+                <button class="accordion-btn" aria-expanded="false">2. Transversalidad Curricular</button>
                 <div class="panel">
-                    <p>Integración obligatoria de ESI, Educación Ambiental y formación ética dentro del taller o aula de Tecnología.</p>
+                    <p>Integración obligatoria de ESI, Educación Ambiental y formación ética dentro del taller o aula de Tecnología. <span class="art-tag">Art. 11p, 89, 92</span></p>
                 </div>
 
-                <button class="accordion-btn">3. Trabajo Colaborativo</button>
+                <button class="accordion-btn" aria-expanded="false">3. Trabajo Colaborativo</button>
                 <div class="panel">
-                    <p>Articulación constante con tutores, gabinetes y la comunidad técnica-productiva.</p>
+                    <p>Articulación constante con tutores, gabinetes y la comunidad técnica-productiva. <span class="art-tag">Art. 32h, 123f</span></p>
+                </div>
+
+                <button class="accordion-btn" aria-expanded="false">4. Reflexiones desde la Práctica</button>
+                <div class="panel">
+                    <div class="quote-list">
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"Ya no enseñamos de una sola manera."</span>
+                            <span class="quote-panel">Tenemos estudiantes diferentes y debemos buscar distintas estrategias. <span class="art-tag">Art. 79-80</span></span>
+                        </button>
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"Incluir no significa bajar la calidad."</span>
+                            <span class="quote-panel">Significa generar oportunidades para que todos puedan aprender. <span class="art-tag">Art. 84</span></span>
+                        </button>
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"El docente enseña más que contenidos."</span>
+                            <span class="quote-panel">También trabaja valores, ambiente, ciudadanía, ESI y problemáticas actuales. <span class="art-tag">Art. 11p, 92</span></span>
+                        </button>
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"La enseñanza es un trabajo compartido."</span>
+                            <span class="quote-panel">El docente necesita trabajar con colegas, familias y otros actores de la institución. <span class="art-tag">Art. 32h, 123f</span></span>
+                        </button>
+                        <button class="quote-card" type="button" aria-expanded="false">
+                            <span class="quote-text">"La realidad del estudiante también entra al aula."</span>
+                            <span class="quote-panel">Debemos conocer el contexto y adaptar nuestras propuestas cuando sea necesario. <span class="art-tag">Art. 79, 86</span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-muro" data-seccion="impacto">
+                <button class="mini-muro-toggle" type="button" aria-expanded="false">
+                    <span class="mini-muro-icon">💬</span>
+                    <span class="mini-muro-label">Comentá esta sección</span>
+                    <span class="mini-muro-count" data-count-for="impacto"></span>
+                    <span class="chevron">▾</span>
+                </button>
+                <div class="mini-muro-panel">
+                    <p class="mini-muro-prompt">¿Qué desafío docente te parece más presente en las escuelas hoy?</p>
+                    <div class="mini-muro-body"></div>
                 </div>
             </div>
         </section>
 
         <!-- Sección 6: Muro Interactivo de Cierre -->
-        <section id="debate" class="card debate-section">
+        <section id="debate" class="card debate-section reveal">
             <h2>Muro de Debate en Vivo</h2>
             <p style="margin-bottom: 1rem;">Para todo el curso: <strong>¿Qué desafío principal enfrenta el docente de Tecnología en la Secundaria actual?</strong></p>
             
@@ -174,6 +490,9 @@
     <footer>
         <p>Exposición Grupo 3 - Profesorado de Educación Tecnológica</p>
     </footer>
+
+    <!-- Botón flotante volver arriba -->
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Volver arriba">↑</button>
 
     <!-- Firebase: necesario para que el muro de comentarios se comparta entre todas las computadoras -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
